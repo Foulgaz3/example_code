@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(PlanetOrbit)
+project(PlanetOrbitSimulation)
 
 add_subdirectory(core)
 
