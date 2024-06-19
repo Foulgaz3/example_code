@@ -1,27 +1,12 @@
-#ifndef PLANET_H
-#define PLANET_H
+
 
 #include <math.h>
-#include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "point.h"
-
-// N*m2/kg2
-#define BIG_G 6.6743e-11 
-
-typedef enum {
-    PLANET_FIXED = false,
-    PLANET_MOVING = true,
-} planet_moving_t;
-
-typedef struct Planet {
-    double mass; // kilograms
-    Point position; // meters
-    Point velocity;
-    planet_moving_t moving;
-} Planet;
+#include "planet.h"
 
 Planet planet_new(double mass, double x, double y, double Vx, double Vy) {
     Planet new_planet;
@@ -112,7 +97,7 @@ void planet_write_data(FILE* fptr, Planet* planet_arr, size_t num_planets) {
 }
 
 // Function to write stepsize to file
-void write_stepsize(FILE* fptr, double stepsize) {
+void planet_write_stepsize(FILE* fptr, double stepsize) {
     // Estimate the length of the string
     size_t string_length = snprintf(NULL, 0, "STEPSIZE: %e sec\n", stepsize);
 
@@ -174,4 +159,3 @@ void planet_write_motion_data(FILE* fptr, Planet* planet_arr, size_t num_planets
     }
 }
 
-#endif // PLANET_H

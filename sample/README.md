@@ -35,7 +35,7 @@ int main() {
 
     planet_write_data(fptr, planets, num_planets);
     
-    write_stepsize(fptr, step_size);
+    planet_write_stepsize(fptr, step_size);
 
     fprintf(fptr, "MOTION\ntimestep, id, x, y, Vx, Vy\n");
     
