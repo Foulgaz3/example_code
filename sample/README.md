@@ -64,7 +64,7 @@ Here is the graph I got for the points:
 I'll also include the output in this directory under `simulation.txt`, but here's the first 12 lines as a preview:
 
 
-```h
+```plaintext
 BODIES
 id, mass, x, y, Vx, Vy, moves
 0, 1.989000e+30, 0.000000e+00, 0.000000e+00, 0.000000e+00, 0.000000e+00, 1
