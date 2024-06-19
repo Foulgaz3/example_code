@@ -1,9 +1,7 @@
 #ifndef PLANET_H
 #define PLANET_H
 
-#include <stdint.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include "point.h"
 
 // Gravitational constant in N*m^2/kg^2

@@ -1,11 +1,5 @@
-
 #include "point.h"
 #include <math.h>
-
-double point_magnitude(Point P) {
-    double r2 = P.X*P.X + P.Y*P.Y;
-    return sqrt(r2);
-}
 
 Point point_add(Point P1, Point P2) {
     Point result;

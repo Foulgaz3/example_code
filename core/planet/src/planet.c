@@ -1,7 +1,4 @@
-
-
 #include <math.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -44,13 +41,16 @@ Point planet_acceleration(Planet planet, Planet* p_arr, size_t num_p) {
 }
 
 void planet_recalculate(Planet* planet, Point Accel, double DelT) {
-    double DelT_acc = DelT * DelT * 0.5;
-    // updating planet position
-    planet->position.X = planet->position.X + DelT*planet->velocity.X + DelT_acc*Accel.X;
-    planet->position.Y = planet->position.Y + DelT*planet->velocity.Y + DelT_acc*Accel.Y;
-    // updating planet velocity
-    planet->velocity.X = planet->velocity.X + DelT*Accel.X;
-    planet->velocity.Y = planet->velocity.Y + DelT*Accel.Y;
+    if (planet->moving) {
+        double DelT_acc = DelT * DelT * 0.5;
+        // updating planet position
+        planet->position.X = planet->position.X + DelT*planet->velocity.X + DelT_acc*Accel.X;
+        planet->position.Y = planet->position.Y + DelT*planet->velocity.Y + DelT_acc*Accel.Y;
+        // updating planet velocity
+        planet->velocity.X = planet->velocity.X + DelT*Accel.X;
+        planet->velocity.Y = planet->velocity.Y + DelT*Accel.Y;
+    }
+    
 }
 
 void planet_write_data(FILE* fptr, Planet* planet_arr, size_t num_planets) {
